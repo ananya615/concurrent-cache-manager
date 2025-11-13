@@ -6,9 +6,9 @@
 #include <unistd.h>
 #include <assert.h>
 
-/* ===============================
+/*
    CONCURRENT CACHE IMPLEMENTATION
-   =============================== */
+   */
 
 typedef struct node {
     char *key;
@@ -220,9 +220,9 @@ void cache_destroy(cache_t *cache) {
     free(cache);
 }
 
-/* ===============================
-   TEST CODE (Multithreaded Demo)
-   =============================== */
+/*
+   TEST CODE (Multithreaded)
+   */
 
 #define NUM_READERS 8
 #define NUM_WRITERS 4
@@ -278,6 +278,7 @@ int main() {
     for (int i = 0; i < NUM_READERS; i++) pthread_join(readers[i], NULL);
 
     cache_destroy(cache);
-    printf("✅ Test completed successfully!\\n");
+    printf(" Test completed successfully!\\n");
     return 0;
 }
+
